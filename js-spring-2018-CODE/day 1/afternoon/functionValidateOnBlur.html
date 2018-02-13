@@ -1,0 +1,29 @@
+<html>
+    <head>
+    <script type="text/javascript">
+        function validate(myObject) {
+            //get the value out of myObject - the textbox
+            //the textbox that just lost focus
+            if(myObject.value == '') {
+                alert('please enter a frickin value');
+                return;
+            }
+            else {
+                alert('oh frick! youve entered the form correctly!');
+                return;
+            }
+        }
+
+    </script>
+    </head>
+    <body>
+        <h1>My Personal Information</h1>
+        <!-- the 'onBlur' event fires when focus has left that particular html element -->
+        First Name: <input type="textbox" id="txtFname" onblur="validate(this)" name='txtFname'/>
+        <br/><br/>
+        Last Name: <input type="textbox" id="txtLname" onblur="validate(this)" name='txtLname'/>
+
+    </body>
+
+
+</html>

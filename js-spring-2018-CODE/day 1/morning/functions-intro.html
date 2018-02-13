@@ -1,0 +1,29 @@
+<html>
+    <head>
+    <script type="text/javascript">
+        //functions are essentially blocks of code shrunk into one name, that you can call by name
+        function welcome() {
+            //everythign inside here is part of the welcome() fxn
+            //variables declared in here only live in here
+            alert('welcome to our page!');
+        }
+
+        function goodbye() {
+            window.location = 'https://www.google.ca';
+        }
+
+        function changeBgColor(color) {
+            document.bgColor = color;
+        }
+    </script>
+    </head>
+    <!-- use the body's onload event to call the welcome() function -->
+    <body onload='welcome();'>
+        <input type="button" value="Goodbye" onclick='goodbye();'>
+        <input type='button' onclick="changeBgColor('steelblue');" value="Change to Blue">
+        <input type='button' onclick="changeBgColor('purple');" value="Change to Purple">
+        <input type='button' onclick="changeBgColor('coral');" value="Change to Coral">
+    </body>
+
+
+</html>

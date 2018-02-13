@@ -1,0 +1,35 @@
+<html>
+    <head>
+    <script type="text/javascript">
+        function doSomething () {
+            //document.writeln("HELLO THIS IS WHAT BUTTON 1 DOES");
+            document.getElementById('div1').innerHTML = 'HELLO THIS IS WHAT BUTTON 1 DOES';
+        }
+
+        function doSomething2 (color) {
+            document.bgColor = color;
+        }
+
+        function doSomething3 (color, myMsg) {
+            alert(myMsg);
+            document.bgColor = color;
+        }
+
+    </script>
+    </head>
+    <body>
+
+        <input type="button" onclick="doSomething();" value="DO SOMETHING!">
+
+        <input type="button" onclick="doSomething2('steelblue');" value="DO SOMETHING PART TWO!">
+
+        <input type="button" onclick="doSomething3('#161616', 'THIS IS THE MESSAGE');" value="DO SOMETHING PART THREE!">
+
+        <h1 id="div1">
+
+        </h1>
+
+    </body>
+
+
+</html>

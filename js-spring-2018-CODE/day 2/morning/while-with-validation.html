@@ -1,0 +1,25 @@
+<html>
+    <head>
+    <script type="text/javascript">
+        // window.prompt() pops up an input box so the user can enter their age. the input value will be a variable called enteredAge
+
+        var enteredAge = window.prompt("please enter ur age");
+        //validate the input enetered age with a while loop
+        while(enteredAge.length == 0) {
+            //if the length of the text is 0, the user did not enter anything
+            alert("pleaseeeee enter ur frickin age")
+            //redisplay the prompt
+            enteredAge = window.prompt("please enter ur age");
+        }
+
+        //output enteredAge to the html document
+        document.write("you are: " + enteredAge + " years old!")
+    </script>
+    </head>
+    <body>
+
+
+    </body>
+
+
+</html>
