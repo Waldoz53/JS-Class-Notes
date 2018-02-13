@@ -1,0 +1,65 @@
+<html>
+    <head>
+    <script type="text/javascript">
+        function populateCars() {
+            var carsArray = ['mustang', 'camaro', 'tonka', 'ute', 'hotwheels'];
+
+            var selectBox;
+
+            selectBox = document.getElementById('cars');
+
+            for (c = 0; c < carsArray.length; c++) {
+                //create an option element
+                var opt = document.createElement('option');
+                opt.value = carsArray[c];
+                opt.innerHTML = carsArray[c];
+                selectBox.appendChild(opt);
+            }
+        }
+
+        function validateForm () {
+            var selectBox = document.getElementById('gamingConsoles');
+            if (selectBox.selectedIndex == 0) {
+                alert('please select a gaming console!');
+                selectBox.focus();
+                return;
+            }
+
+            var textBox = document.getElementById('fullName');
+            if (textBox.value == '') {
+                alert('please enter your full name!')
+                textBox.focus();
+                return;
+            }
+        }
+
+    </script>
+    </head>
+    <body>
+        <select id="gamingConsoles">
+            <option name='default' value=''>-Select-</option>
+            <option name='xbox' value='xbox'>xbox</option>
+            <option name='nSwitch' value='nSwitch'>nintendo switch</option>
+            <option name='atari 2600' value='atari 2600'>atari 2600</option>
+        </select>
+
+        <br/><br/>
+
+        <select id='cars'>
+
+        </select>
+
+        <br/><br/>
+
+        <input type="button" onclick='populateCars();' value="Populate with Cars!">
+
+        <br/><br/>
+
+        Full Name: <input type="text" name="fullName" id="fullName">
+        <br/><br/>
+
+        <input type="button" onclick="validateForm();" value="Validate!">
+    </body>
+
+
+</html>

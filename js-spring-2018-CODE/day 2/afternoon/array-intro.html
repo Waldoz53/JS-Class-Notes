@@ -1,0 +1,47 @@
+<html>
+    <head>
+    <script type="text/javascript">
+        //creat an empty array
+        //square brackets indiccate arrays
+        var myArray = [];
+        myArray[0] = 'stephan';
+        myArray[1] = 'tyler';
+        myArray[2] = 'amelia';
+        myArray[3] = 'waleed';
+        myArray[4] = 'chris';
+
+        //output the size(length) of the array
+        document.write('myArray.length = ' + myArray.length + "<br/>");
+
+        //output the values IN the array
+        //the bad way
+        document.write('myArray[0] = ' + myArray[0] + "<br/>");
+        document.write('myArray[1] = ' + myArray[1] + "<br/>");
+        document.write('myArray[2] = ' + myArray[2] + "<br/>");
+        document.write('myArray[3] = ' + myArray[3] + "<br/>");
+        document.write('myArray[4] = ' + myArray[4] + "<br/>");
+
+        document.write("<br/>");
+
+        //developers are lazy. if thers a shorter or faster way to get the same results, its better
+        for (i = 0; i < myArray.length; i++) {
+            document.write("myArray[" + i + "] = " + myArray[i] + '<br/>');
+        }
+
+        document.write("<br/>");
+
+        //lets do the same thing with a while loop
+        iCount = 0;
+        while (iCount < myArray.length) {
+            document.write("myArray[" + iCount + "] = " + myArray[iCount] + '<br/>');
+            iCount++;
+        }
+    </script>
+    </head>
+    <body>
+
+
+    </body>
+
+
+</html>

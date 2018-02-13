@@ -1,0 +1,42 @@
+<html>
+    <head>
+    <script type="text/javascript">
+    //output a table so that it shows rgb colours up til 255 the table is split into 3 columns, R, G, and B
+        function showColours () {
+            // output to our div1
+            var outputText = "<table border='2'>";
+
+            for(i = 0; i < 256; i += 5) {
+                outputText += '<tr>';
+                outputText += "<td style='background-color:rgb(0,0," + i + ")'>" + i + "</td>";
+                outputText += "<td style='background-color:rgb(0," + i + ",0)'>" + i + "</td>";
+                outputText += "<td style='background-color:rgb(" + i + ",0,0)'>" + i + "</td>";
+                outputText += "</tr>";
+            }
+            outputText += "</table>";
+
+            document.getElementById('div1').innerHTML = outputText;
+        }
+    </script>
+    </head>
+    <body>
+        <table border='2'>
+            <tr>
+                <td style='background-color:rgb(0,0,10)'>10</td>
+                <td style='background-color:rgb(0,10,0)'>10</td>
+                <td style='background-color:rgb(10,0,0)'>10</td>
+            </tr>
+            <tr>
+                <td style='background-color:rgb(0,0,20)'>20</td>
+                <td style='background-color:rgb(0,20,0)'>20</td>
+                <td style='background-color:rgb(20,0,0)'>20</td>
+            </tr>
+        </table>
+
+        <div id="div1"></div>
+        <br/>
+        <input type='button' onclick='showColours();' value="Show Colours!">
+    </body>
+
+
+</html>
