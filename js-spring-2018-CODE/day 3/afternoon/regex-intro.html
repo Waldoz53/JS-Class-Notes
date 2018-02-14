@@ -1,0 +1,34 @@
+<html>
+    <head>
+    <script type="text/javascript">
+
+    // document.write('<br/>');
+
+    function check() {
+        if (document.getElementById('txtPhone').value.length != 12) {
+            alert('please enter a valid phone number format! (123-123-1234)');
+            document.getElementByID('txtPhone').focus();
+            return false;
+        }
+        //creates a var to hold the phone format. need to be surrounded with '/ /'
+        var phoneRegex =/\d\d\d-\d\d\d-\d\d\d\d/;
+                        //###-###-####
+        var enteredString = document.getElementById('txtPhone').value;
+
+        if (phoneRegex.test(enteredString)) {
+            alert('congrats you entered a good phone number!');
+        }
+        else {
+            alert('please insure that the phone number is formatted properly ###-###-####');
+        }
+    }
+
+    </script>
+    </head>
+    <body>
+        <input type="text" id="txtPhone" name='txtPhone' onchange='check()'>
+
+    </body>
+
+
+</html>

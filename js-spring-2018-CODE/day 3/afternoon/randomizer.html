@@ -1,0 +1,30 @@
+<html>
+    <head>
+    <script type="text/javascript">
+
+    // document.write('<br/>');
+    var teams = ['blue jays', 'flames', 'oilers', 'roughnecks', 'redblacks'];
+
+    function getRandomIndex(arrayLength) {
+        var rnd = Math.floor((Math.random() * arrayLength) + 0);
+
+        return rnd;
+    }
+
+    var rndTeam = teams[getRandomIndex(teams.length)];
+    document.write('our random team is: ' + rndTeam);
+
+    document.write('<br/><br/>');
+
+    var rndNumber = getRandomIndex(132142131231231);
+    document.write('our random number is: ' + rndNumber);
+
+    </script>
+    </head>
+    <body>
+
+
+    </body>
+
+
+</html>

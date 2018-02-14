@@ -1,0 +1,39 @@
+<html>
+    <head>
+    <script type="text/javascript">
+    //was a broken form riddled with errors. now all fixed!
+        function populatePosition() {
+            var posArray = ["project mgr","business analyst","quality assurance","search engine optimization"];
+            var output = "<option value=''>-Select-</option>";
+            for(index = 0; index < posArray.length; index++){
+                output += "<option value='" + posArray[index] + "'>" + posArray[index] + "</option>";
+            }
+            document.getElementById('selection').innerHTML = output;
+        }
+
+        function validate() {
+            var name = document.getElementById('txtName').value;
+            var position = document.getElementById('selection').value;
+
+            if(name == ""){
+                alert('please enter a name');
+                document.getElementById('txtName').focus();
+                return false;
+            }
+
+            if(position == ""){
+                alert('please select a position');
+                document.getElementById('selection').focus();
+                return false;
+            }
+
+            alert('congrats, you entered the form correctly');
+        }
+    </script>
+    </head>
+    <body onload="populatePosition()">
+        Name:  <input name="txtName" id="txtName" type="text"><br/>
+        Position:  <select name="cboPosition" id='selection'></select><br/>
+        <input type="button" value="submit" onclick="validate()">
+    </body>
+</html>

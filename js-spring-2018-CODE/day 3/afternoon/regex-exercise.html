@@ -1,0 +1,72 @@
+<html>
+    <head>
+    <script type="text/javascript">
+
+    // document.write('<br/>');
+
+    function check() {
+        if (document.getElementById('txtZip').value.length != 7) {
+            alert('please enter a valid postal code format! (X#X #X#)');
+            document.getElementByID('txtZip').focus();
+            return false;
+        }
+
+        if (document.getElementById('txtIP').value.length > 15) {
+            alert('please enter a valid IP format! (xxx.xxx.xxx.xxx)');
+            document.getElementByID('txtIP').focus();
+            return false;
+        }
+        //creates a var to hold the phone format. need to be surrounded with '/ /'
+        var phoneRegex =/\D\d\D\s\d\D\d/;
+                        //X#X #X#
+        var enteredString = document.getElementById('txtZip').value;
+
+        if (phoneRegex.test(enteredString)) {
+            alert('congrats you entered a good postal code!');
+        }
+        else {
+            alert('please insure that the postal code is formatted properly (X#X #X#)');
+        }
+
+
+        var emailRegex = /(\w+\.)*\w+@([a-zA-Z]+\.)+[a-zA-Z]{2,6}/;
+
+        var enteredString2 = document.getElementById('txtEmail').value;
+
+        if (emailRegex.test(enteredString2)) {
+            alert('congrats you entered a good email!');
+        }
+        else {
+            alert('please insure that the email is formatted correctly! (example: name@website.com)');
+        }
+
+        var ipRegex = /(\d{1,3}\.){3}\d{1,3}/;
+
+        var enteredString3 = document.getElementById('txtIP').value;
+
+        if (ipRegex.test(enteredString3)) {
+            alert('congrats you entered a good IP!');
+        }
+        else {
+            alert('please insure that the IP is formatted correctly! (255.255.255.255)');
+        }
+    }
+
+    </script>
+    </head>
+    <body>
+        Postal Code: <input type="text" id="txtZip" name="txtZip">
+        <br/><br/>
+
+        Email: <input type="text" id="txtEmail" name="txtEmail">
+        <br/><br/>
+
+        IP: <input type="text" id="txtIP" name="txtIP">
+        <br/><br/>
+
+        <input type="button" onclick="check()" value="Submit!">
+
+    </body>
+
+
+</html>

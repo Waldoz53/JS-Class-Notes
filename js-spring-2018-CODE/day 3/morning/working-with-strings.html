@@ -1,0 +1,36 @@
+<html>
+    <head>
+    <script type="text/javascript">
+        //here is a hardcoded string
+        var str = 'Here is a humorous sentence!';
+
+        //strings can have some characteristics similar to arrays
+        //get the length of a string, same method as array.length
+        document.write('our string length is: ' + str.length + "<br/><br/>");
+
+        //split() breaks the string up
+        var strArray = str.split(' ');
+
+        for (i = 0; i < strArray.length; i++) {
+            document.write(strArray[i] + '<br/>');
+        }
+
+        document.write('<br/>');
+
+        str = str.toUpperCase();
+        document.write('uppercase string is: ' + str);
+
+        document.write('<br/><br/>');
+
+        str = str.replace('HUMOROUS', 'dumb');
+        document.write('replaced humorous with dumb: ' + str);
+
+    </script>
+    </head>
+    <body>
+
+
+    </body>
+
+
+</html>

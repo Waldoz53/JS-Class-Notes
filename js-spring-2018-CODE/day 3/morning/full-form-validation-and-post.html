@@ -1,0 +1,65 @@
+<html>
+    <head>
+    <script type="text/javascript">
+
+    // document.write('<br/>');
+
+    function populateCourses() {
+        var courses = ['basketweaving', 'taxidermy', 'kinesiology', 'astrology'];
+        var sBox = document.getElementById('sCourses');
+
+        var dOpt = document.createElement('option');
+        dOpt.value = '';
+        dOpt.innerHTML = '- Select -';
+        sBox.appendChild(dOpt);
+
+        for (index = 0; index < courses.length; index++) {
+            var opt = document.createElement('option');
+            opt.value = courses[index];
+            opt.innerHTML = courses[index];
+            sBox.appendChild(opt);
+        }
+    }
+
+    // ------------------------------------------------------------
+
+    function validateForm() {
+        if (document.forms[0].elements[0].selectedIndex == 0) {
+            alert('Please select a course!');
+            document.forms[0].elements[0].focus();
+            return false;
+        }
+
+        document.forms[0].submit();
+    }
+
+    </script>
+    </head>
+    <body onload='populateCourses()'>
+        <input type="button" onclick="populateCourses()" value="Populate Courses!">
+
+        <br/>
+
+        <form name='myForm' action="http://localhost/javascript/response.php" method="post">
+
+            Select a Course: <select id="sCourses" name="sCourses"></select>
+            <br/>
+
+            Name: <input type="text" name="txtName" id="txtName">
+            <br/>
+
+            Password: <input type="password" name="txtPassword" id="txtPassword">
+            <br/>
+
+            Description: <textarea height='300px' width='300px' name='textAreaBox' id='textAreaBox'></textarea>
+            <br/>
+
+            <input type="button" name="btnSubmit" value="Submit Form!" onclick='validateForm()' >
+
+
+        </form>
+
+    </body>
+
+
+</html>
