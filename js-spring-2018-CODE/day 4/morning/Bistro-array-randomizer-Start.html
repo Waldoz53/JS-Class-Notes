@@ -1,0 +1,31 @@
+<html>
+    <head>
+    <script type="text/javascript">
+
+        var bread = ['white', 'whole wheat', 'sourdough', 'rye', 'parmesan oregano'];
+        var condiments = ['dijon mustard', 'ranch', 'santa fe', 'chipotle', 'sriracha'];
+        var meat = ['eggplant', 'chicken', 'squab', 'turkey','beef'];
+
+        function getRandomIndex(arrayLength){
+            // get my randome array index
+            var rnd = Math.floor((Math.random() * arrayLength) + 0);
+            // return our random index back
+            return rnd;
+        }
+
+        function loadArraysAndGetSpecial() {
+            var rndBread = bread[getRandomIndex(bread.length)];
+            var rndCondiment = condiments[getRandomIndex(condiments.length)];
+            var rndMeat = meat[getRandomIndex(meat.length)];
+
+            document.getElementById('special').innerHTML = 'The special of the day is ' + rndMeat + ' and ' + rndCondiment + ' on ' + rndBread + ' bread!';
+        }
+
+    </script>
+    </head>
+    <body>
+        <input type="button" value="Get Special for the Day" onclick="loadArraysAndGetSpecial()">
+        <p>   </p>
+        <div id="special"></div>
+    </body>
+</html>

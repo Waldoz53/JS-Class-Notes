@@ -1,0 +1,42 @@
+<html>
+    <head>
+    <script type="text/javascript">
+    // document.write('<br/>'); copy and paste for ez break
+
+    var counter = 0;
+    var timer; //variable to hold the timer
+
+    function startTimer() {
+        document.getElementById('div1').innerHTML = '<h1>Count: ' + (counter++) + "</h1>";
+        document.getElementById('div1').style.backgroundColor = 'steelblue';
+        document.getElementById('startBtn').disabled = true;
+
+        timer = setTimeout('startTimer()', 1000);
+    }
+
+    function stopTimer() {
+        clearTimeout(timer);
+
+        document.getElementById('div1').innerHTML = '<h1>Timer Stopped</h1>';
+
+        document.getElementById('div1').style.backgroundColor = 'orange';
+
+        document.getElementById('startBtn').disabled = false;
+
+        counter = 0;
+    }
+
+    </script>
+    </head>
+    <body>
+        <form>
+            <div id="div1" style='background-color:coral'>
+                <h1>Original Div Contents</h1>
+            </div>
+            <input type="button" id="startBtn" value="Start!" onclick='startTimer()'>
+            <input type="button" id="stopBtn" value="STOP!" onclick='stopTimer()'>
+        </form>
+    </body>
+
+
+</html>

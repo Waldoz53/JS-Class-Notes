@@ -1,0 +1,43 @@
+<html>
+    <head>
+    <script type="text/javascript">
+    // document.write('<br/>'); copy and paste for ez break
+
+    function startClock() {
+        getTime();
+
+        setInterval('getTime()', 1000);
+    }
+
+    function getTime() {
+        var today = new Date();
+
+        var hour = today.getHours();
+        var minutes = today.getMinutes();
+        var seconds = today.getSeconds();
+
+        if (hour < 10) {
+            hour = '0' + hour;
+        }
+
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+
+        if (seconds < 10) {
+            seconds = '0' + seconds;
+        }
+
+        var myTime = hour + ':' + minutes + ':' + seconds;
+        document.getElementById('clock').value = myTime;
+        document.getElementById('demo').innerHTML = today;
+    }
+    </script>
+    </head>
+    <body onload='startClock()'>
+        <input type="text" id="clock">
+        <p id='demo'></p>
+    </body>
+
+
+</html>

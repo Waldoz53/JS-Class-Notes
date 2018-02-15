@@ -1,0 +1,36 @@
+<html>
+   <head>
+	  <script type="text/javascript">
+      //now fixed!
+		 var myimages = new Array();
+		 var index = 0;
+		 myimages[0] = new Image();
+		 myimages[0].src = "media - broken/laptop.gif";
+		 myimages[1] = new Image();
+		 myimages[1].src = "media - broken/pen.gif";
+		 myimages[2] = new Image();
+		 myimages[2].src = "media - broken/puter.gif";
+		 myimages[3] = new Image();
+		 myimages[3].src = "media - broken/lamp.gif";
+		 myimages[4] = new Image();
+		 myimages[4].src = "media - broken/disk.gif";
+		 myimages[5] = new Image();
+		 myimages[5].src = "media - broken/cell.gif";
+
+	     function swapImage()
+		 {
+			document.getElementById("theImage").src = myimages[index].src;
+			          // this is an 'if' statement - just a different syntax
+				//  if (condition) ? do something if true : else ;
+			(index == (myimages.length - 1)) ? index=0 : index++ ;
+		 }
+	  </script>
+   </head>
+   <body>
+      <img id="theImage" src="media - broken/cell.gif" />
+
+	  <script>
+			setInterval(swapImage, 2000);
+	  </script>
+   </body>
+</html>
