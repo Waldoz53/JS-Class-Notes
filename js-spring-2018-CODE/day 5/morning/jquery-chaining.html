@@ -1,0 +1,35 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#button1').click(function(){
+            //set up a chain of events to execute on div1
+            $('#div1').fadeOut().fadeIn().slideUp(2000).slideDown(1500);
+        })
+
+        $('#button2').click(function(){
+            //set up a chain of events to execute on div2
+            $('#div2').css('background-color','coral')
+                .animate({fontSize: '3em'}, 'slow', function(){
+                    $('#div2').css('background-color', 'steelblue')
+                        .animate({fontSize: '2em'}, 'slow');
+                })
+        })
+    })
+
+</script>
+</head>
+<body>
+    Demonstrate fadeIn() and fadeOut() with a chain
+    <br>
+    <button id="button1" name="button1">Click to execute a FADING CHAIN</button>
+    <br><br>
+    <button id="button2" name="button2">Click to execute EVEN MORE CHAINING</button>
+    <br><br>
+
+    <div id="div1">Some text here!</div>
+    <br><br>
+    <div id="div2">Some DIFFERENT text here</div>
+</body>
+</html>

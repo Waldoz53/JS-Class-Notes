@@ -1,0 +1,48 @@
+<html>
+    <head>
+    <script type="text/javascript">
+        function moveAndChange() {
+            //create a variable to hold the value in txt1
+            var txt1Value;
+            //put the value from txt1 into the a variable
+            txt1Value = document.getElementById('txt1').value;
+
+            document.getElementById('txt2').value = txt1Value;
+
+            document.getElementById('txt1').value = '';
+        }
+
+        function moveAndChangeBack() {
+            //create a variable to hold the value in txt1
+            var txt2Value;
+            //put the value from txt1 into the a variable
+            txt2Value = document.getElementById('txt2').value;
+
+            document.getElementById('txt1').value = txt2Value;
+
+            document.getElementById('txt2').value = '';
+        }
+
+    </script>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>
+                    <input type='text' id='txt1' name='txt1'>
+                </td>
+                <td>
+                    <button onclick="moveAndChange()" id='btn1'>&gt;&gt;</button>
+                    <button onclick="moveAndChangeBack()" id='btn2'>&lt;&lt;</button>
+                </td>
+                <td>
+                    <input type="text" id="txt2" name="txt2">
+                </td>
+
+            </tr>
+        </table>
+
+    </body>
+
+
+</html>

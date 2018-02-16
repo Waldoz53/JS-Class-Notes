@@ -1,0 +1,35 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        //fxn for our button1 click
+        $('#button1').click(function(){
+            //make div1 visible
+            $('#div1').fadeIn(); //fades in with default speed.
+            $('#div1').fadeOut(3000);
+            $('#div1').fadeIn('slow');
+        });
+
+        $('#button2').click(function(){
+            //make div1 visible
+            $('#div2').fadeOut(); //fades in with default speed.
+            $('#div2').fadeIn(3000);
+            $('#div2').fadeOut('slow');
+        });
+    });
+
+</script>
+</head>
+<body>
+    <p>Demonstrate fadeIn() and fadeOut() jquery calls with different parameters</p>
+    <br>
+    <button id='button1'>Click to fadeIn()</button>
+    <button id='button2'>Click to fadeOut()</button>
+    <br><br>
+    <div id="div1" style='width:200px; height:200px; background-color:coral; display:none;'></div>
+    <br><br>
+    <div id="div2" style='width:200px; height:200px; background-color:steelblue;'></div>
+
+</body>
+</html>

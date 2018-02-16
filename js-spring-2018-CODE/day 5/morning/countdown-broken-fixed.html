@@ -1,0 +1,68 @@
+<html>
+<!-- our basic 'shell' for javascript work -->
+    <head>
+    <script type="text/javascript">
+    // two functions that we'll use with timers are:
+    // setTimeout(callToAFunction(),numberInMillisToWait) - pause execution
+    // clearTimeout(passInATimer) - clears the timer
+
+    // global vars...
+    // this counter will tell us how many times the
+    // startTimer() function gets called
+    var sCounter=60;
+    var mCounter=5;
+    // Here's a variable to hold our timer
+    var timer;
+
+    function startTimer(){
+        timer = setTimeout("startTimer()",1000);
+        //replace the text content of my div1 below with info
+        // about my counter variable in an <h1> tag
+        document.getElementById('div1').innerHTML = "<h1>Count: " + (mCounter) + ":" + (sCounter--) + "</h1>";
+
+        // also, we'll change the background color of the div to yellow
+        document.getElementById('div1').style.backgroundColor = 'yellow';
+
+        // disable the start button
+        document.getElementById('startBtn').disabled=true;
+
+        // finally, set our timer using the 'setTimeout()' function, and
+        // 'recall' this function again in 1000 milliseconds (it will call this method)
+        if(sCounter<=0 && mCounter<=0){
+            stopTimer();
+            sCounter = 0;
+            mCounter = 0;
+        }else if(sCounter<0){
+           mCounter--;
+           sCounter=59;
+           // timer = setTimeout('startTimer()',1000);
+        }else{
+           // timer = setTimeout('startTimer()',1000);
+        }
+
+    }
+
+    // WE NEED TO STOP OUR TIMER!!!!
+    function stopTimer(){
+        //call the clearTimeout() function on the window object and make sure
+        // to pass in our timer - otherwise it won't know what to clear
+        clearTimeout(timer);
+        // reset the text in our div1
+        document.getElementById('div1').innerHTML = "Timer stopped";
+        // reset the color in our div1
+        document.getElementById('div1').style.backgroundColor = 'aqua';
+        // enable the start button again
+        document.getElementById('startBtn').disabled=false;
+    }
+    </script>
+    </head>
+    <body>
+      <form>
+          <div id="div1" style="background-color:red">Original Dev Contents</div>
+          <input type="button" value="Start" id="startBtn" onclick="startTimer()"/>
+          <input type="button" value="Stop" onclick="stopTimer()"/>
+      </form>
+    </body>
+
+
+</html>

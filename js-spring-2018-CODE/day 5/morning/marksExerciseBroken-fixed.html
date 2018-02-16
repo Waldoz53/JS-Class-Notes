@@ -1,0 +1,45 @@
+<html>
+<!-- our basic 'shell' for javascript work -->
+    <head>
+        <script type="text/javascript">
+    		function assignGrade(){
+    			// create a variable to hold my output
+    			var display = "";
+
+    			//loop through the marks 60 -> 100
+    			for(score=60;score<=100;score++){
+    				display += "For " + score + ", you got a " + getGrade(score) + "<br/>";
+    				// if I try and write my output to the html document
+    				// here, I'll have problems because it will
+    				//document.getElementById("p1").innerHTML = output;
+    			}
+    			// this is a better spot to output to the html doc
+    			// because it only outputs it once, rather than 40 times
+    			document.getElementById("p1").innerHTML = display;
+    		}
+
+    		function getGrade(myScore){
+    			//here's the logic to the get grade from the number score
+    			if(myScore>=85){
+    				return "A";
+    			}else if(myScore>=80){   // >=80
+    				return "B";
+    			}else if(myScore>=75){   // >=75
+    				return "C+";
+    			}else if(myScore>=70){   // >=70
+    				return "C";
+    			}else if(myScore>=65){   // >=65
+    				return "D";
+    			}else{
+    				return "F";    //return "F"
+    			}
+    		}
+        </script>
+    </head>
+    <body>
+    	<button onclick="assignGrade()">Assign Grades</button>
+    	<!-- I'm going to use a paragraph to output information
+    	about the marks and grades -->
+    	<p id="p1"></p>
+    </body>
+</html>

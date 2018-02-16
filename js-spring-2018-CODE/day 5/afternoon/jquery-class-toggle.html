@@ -1,0 +1,50 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function(){
+        $('#b1').click(function(){
+            $('h1,h2,p').toggleClass('blue');
+        });
+
+        $('#b2').click(function(){
+            $('#div1').addClass('important blue');
+        });
+
+        $('#b3').click(function(){
+            $('#div1').removeClass('important blue');
+        });
+    });
+
+</script>
+<style>
+
+    .important {
+        font-weight: bold;
+        font-size: xx-large;
+    }
+
+    .blue {
+        color: steelblue;
+    }
+
+</style>
+</head>
+<body>
+
+    <h1>heading 1</h1>
+    <h2>heading 2</h2>
+    <p>this is a paragraph</p>
+    <p>here's another paragraph</p>
+
+    <button id="b1" name="b1">toggle css class</button>
+    <br><br>
+    <div id="div1">some text in div 1</div>
+    <div id="div2">some text in div 2</div>
+    <br><br>
+    <button id="b2" name="b2">added classes to first div</button>
+    <button id="b3" name="b3">remove classes from first div</button>
+
+</body>
+</html>
