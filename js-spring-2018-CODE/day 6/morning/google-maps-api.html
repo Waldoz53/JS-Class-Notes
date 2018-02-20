@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Simple Map - Google API</title>
+        <meta name='viewport' content='initial-scale=1.0'>
+        <meta charset='utf-8'>
+        <style>
+            /* set the map height explicitly to ensure its a size i want */
+
+            #map {
+                height: 400px;
+                width: 400px;
+            }
+
+            /* this makes the sample page fill the window/document */
+
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+
+        <script>
+
+            var map;
+
+            function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center:{lat: 51.0630957, lng: -114.089228}, zoom: 13
+                })
+            }
+
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1i-N-APF6G3Ofconyu_-lJrZWQcIBf7E&callback=initMap" async defer></script>
+
+    </body>
+
+
+</html>

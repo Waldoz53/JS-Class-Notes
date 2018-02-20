@@ -1,0 +1,41 @@
+<html>
+    <head>
+    <script type="text/javascript">
+    // document.write('<br/>'); copy and paste for ez break
+        function loadCDs() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function(){
+                if(xhttp.readyState == 4 && xhttp.status == 200) {
+                    var xmlDoc = xhttp.responseXML;
+
+                    var output = '';
+
+                    var tag = document.getElementById('txtNode').value;
+
+                    var xmlTags = xmlDoc.getElementsByTagName(tag);
+
+                    for (var index = 0; index < xmlTags.length; index++) {
+                        output += xmlTags[index].childNodes[0].nodeValue + "<br/>";
+                    }
+
+                    document.getElementById('cdOutput').innerHTML = output;
+                }
+            }
+            xhttp.open('GET', 'CD.xml', true);
+            xhttp.send();
+        }
+
+    </script>
+    </head>
+    <body>
+        <button onclick="loadCDs()" name="loadCDs">get my cd collection!</button>
+        <br><br>
+        get data on: <input type="text" name="txtNode" id="txtNode">
+        <br><br>
+        <p id='cdOutput'></p>
+
+    </body>
+
+
+</html>

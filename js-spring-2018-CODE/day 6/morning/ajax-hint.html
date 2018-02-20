@@ -1,0 +1,35 @@
+<html>
+    <head>
+    <script type="text/javascript">
+    // document.write('<br/>'); copy and paste for ez break
+        function showHint(string) {
+            if (string.length == 0) {
+                document.getElementById('txtHint').innerHTML = 'type a real character!';
+                return;
+            }
+            else {
+                var xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function() {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        document.getElementById('txtHint').innerHTML = xhttp.responseText;
+                    }
+                }
+                xhttp.open("GET", 'gethint.php?q=' + string, true);
+                xhttp.send();
+            }
+        }
+
+    </script>
+    </head>
+    <body>
+        <strong>Start typing in the field below:</strong>
+        <br><br>
+        first name: <input type="text" name="txtFName" onkeyup="showHint(this.value)">
+        <br><br>
+        <p>Suggestions: <span id='txtHint'></span></p>
+
+    </body>
+
+
+</html>
