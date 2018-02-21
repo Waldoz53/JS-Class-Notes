@@ -1,0 +1,30 @@
+[
+{
+"display": "Facebook",
+"url": "http://www.facebook.com"
+},
+{
+"display": "Twitter",
+"url": "http://www.twitter.com"
+},
+{
+"display": "Linked In",
+"url": "http://www.linkedin.com"
+},
+{
+"display": "Pinterest",
+"url": "http://www.pinterest.com"
+},
+{
+"display": "SnapChat",
+"url": "http://www.snapchat.com"
+},
+{
+"display": "Instagram",
+"url": "http://www.instagram.com"
+},
+{
+"display": "Google+",
+"url": "http://plus.google.com"
+}
+]

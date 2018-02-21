@@ -1,0 +1,79 @@
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    // document.write('<br/>'); copy and paste for ez break
+
+
+    </script>
+    </head>
+    <body>
+        <select id="citySelect" name="citySelect">
+            <option value="Calgary,ca">Calgary, Canada</option>
+            <option value="Beijing,cn">Beijing, China</option>
+            <option value="Dubai,ae">Dubai, UAE</option>
+            <option value="Singapore,sg">Singapore</option>
+            <option value="Delhi,in">Delhi, India</option>
+            <option value="Berlin,de">Berlin, Germany</option>
+            <option value="Auckland,nz">Auckland, New Zealand</option>
+            <option value="Dublin,ie">Dublin, Ireland</option>
+        </select>
+
+        <h1>The weather in <span id='city'></span> today is: </h1>
+        Mainly: <span id='main'></span>
+        <br/>
+        Detailed Description: <span id='detail'></span>
+        <br/>
+        <img src="" id="icon">
+        <br/>
+        Temperature: <span id='temp'></span>
+
+        <script type="text/javascript">
+            var city='Calgary,ca';
+
+            $(document).ready(function(){
+                $('#citySelect').on('change', function(){
+                    city = this.value;
+                    getWeather();
+                })
+            });
+
+            function getWeather() {
+                var xhttp = new XMLHttpRequest();
+
+                var url = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=b83f727452c8eba9237d69467f82a2ad";
+
+                xhttp.onreadystatechange = function() {
+                    if (xhttp.readyState == 4 && xhttp.status == 200) {
+                        var parsedJSON = JSON.parse(xhttp.responseText);
+
+                        outputWeather(parsedJSON);
+                    }
+                }
+                xhttp.open("GET", url, true);
+                xhttp.send();
+
+                function outputWeather(weatherData) {
+                    var mainly = weatherData.weather[0].main;
+                    document.getElementById('main').innerHTML = mainly;
+
+                    var detail = weatherData.weather[0].description;
+                    document.getElementById('detail').innerHTML = detail;
+
+                    var icon = weatherData.weather[0].icon;
+                    icon = "https://openweathermap.org/img/w/" + icon + ".png"
+                    document.getElementById('icon').src = icon;
+
+                    var temperature = weatherData.main.temp;
+                    document.getElementById('temp').innerHTML = Math.round(temperature - 273.15) + '&#8451';
+
+                    city = city.substring(0, city.length - 3);
+                    document.getElementById('city').innerHTML = city;
+                }
+            }
+        </script>
+
+    </body>
+
+
+</html>

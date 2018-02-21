@@ -1,0 +1,27 @@
+<html>
+    <head>
+    <script type="text/javascript">
+    // document.write('<br/>'); copy and paste for ez break
+
+
+    </script>
+    </head>
+    <body>
+        <h2>example of JSON object creation and parsing in javascript</h2>
+        <p id='demo'></p>
+
+        <script type="text/javascript">
+            //json snippet
+            var jsonText = '{"name": "Jack Johnson", "street": "123 Straight St", "phone": "555-234-6789"}';
+
+            var jsonObj = JSON.parse(jsonText);
+
+            document.getElementById('demo').innerHTML = jsonObj.name + "<br/>" + jsonObj.street + "<br/>" + jsonObj.phone;
+
+
+        </script>
+
+    </body>
+
+
+</html>

@@ -1,0 +1,54 @@
+<html>
+    <head>
+    <script type="text/javascript">
+    // document.write('<br/>'); copy and paste for ez break
+
+
+    </script>
+    </head>
+    <body>
+        <h1>The weather in Calgary today is: </h1>
+        Mainly: <span id='main'></span>
+        <br/>
+        Detailed Description: <span id='detail'></span>
+        <br/>
+        <img src="" id="icon">
+        <br/>
+        Temperature: <span id='temp'></span>
+
+        <script type="text/javascript">
+
+            var xhttp = new XMLHttpRequest();
+
+            var url = 'http://api.openweathermap.org/data/2.5/weather?q=Calgary&appid=b83f727452c8eba9237d69467f82a2ad';
+
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var parsedJSON = JSON.parse(xhttp.responseText);
+
+                    outputWeather(parsedJSON);
+                }
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+
+            function outputWeather(weatherData) {
+                var mainly = weatherData.weather[0].main;
+                document.getElementById('main').innerHTML = mainly;
+
+                var detail = weatherData.weather[0].description;
+                document.getElementById('detail').innerHTML = detail;
+
+                var icon = weatherData.weather[0].icon;
+                icon = "https://openweathermap.org/img/w/" + icon + ".png"
+                document.getElementById('icon').src = icon;
+
+                var temperature = weatherData.main.temp;
+                document.getElementById('temp').innerHTML = Math.round(temperature - 273.15) + '&#8451';
+            }
+        </script>
+
+    </body>
+
+
+</html>

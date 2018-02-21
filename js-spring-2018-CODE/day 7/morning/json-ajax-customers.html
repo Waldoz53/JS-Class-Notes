@@ -1,0 +1,41 @@
+<html>
+    <head>
+    <script type="text/javascript">
+    // document.write('<br/>'); copy and paste for ez break
+
+
+    </script>
+    </head>
+    <body>
+        <div id="customers"></div>
+
+        <script type="text/javascript">
+
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var customers = JSON.parse(xhttp.responseText);
+
+                    outputCustomers(customers);
+                }
+            }
+
+            xhttp.open("GET", 'customers.txt', true);
+            xhttp.send();
+
+            function outputCustomers(custArray) {
+                var output = '';
+
+                for (var custObj of custArray) {
+                    output += "name: " + custObj.Name + "<br/>" + "city: " + custObj.City + '<br/>' + "country: " + custObj.Country + '<br/><br/>';
+                }
+                document.getElementById('customers').innerHTML = output;
+            }
+        </script>
+
+
+    </body>
+
+
+</html>

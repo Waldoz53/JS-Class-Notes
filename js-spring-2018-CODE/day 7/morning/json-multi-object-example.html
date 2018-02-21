@@ -1,0 +1,29 @@
+<html>
+    <head>
+    <script type="text/javascript">
+    // document.write('<br/>'); copy and paste for ez break
+
+
+    </script>
+    </head>
+    <body>
+        <h2>JSON outputting candy!!</h2>
+        <p id='candyOutput'></p>
+
+        <script type="text/javascript">
+            var candies = '[{"make": "hersheys", "type": "chocolate"}, {"make": "cadbury", "type": "mini-eggs"}, {"make": "lindt", "type": "lindar"}, {"make": "nestle", "type": "kinder surprise"}]';
+
+            var parsedCandy = JSON.parse(candies);
+
+            var output = '';
+
+            for (i = 0; i < parsedCandy.length; i++) {
+                output += 'make: ' + parsedCandy[i].make + '<br/>' + 'type: ' + parsedCandy[i].type + "<br/><br/>";
+                document.getElementById('candyOutput').innerHTML = output;
+            }
+        </script>
+
+    </body>
+
+
+</html>
