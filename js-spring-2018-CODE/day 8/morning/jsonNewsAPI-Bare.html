@@ -1,0 +1,41 @@
+<html>
+<!-- to get AJAX working, you need to run it on a web server!! -->
+    <head>
+
+    </head>
+    <body>
+        <!-- <a id='articleUrl'><h1 id="title"></h1></a>
+        Author: <span id='author'></span>
+        <p id='description'></p>
+        <img id='image' width="200px" height="200px"> -->
+        <div id="div1">
+
+        </div>
+        <script>
+            var url = "https://newsapi.org/v1/articles?source=national-geographic&sortBy=top&apiKey=c4761baa1d1a4f8d9df5ac8dccdde6ee";
+
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    var parsedJSON = JSON.parse(xhttp.responseText);
+
+                    outputArticles(parsedJSON);
+                }
+            }
+            xhttp.open("GET", url, true);
+            xhttp.send();
+
+                function outputArticles(articlesInfo) {
+                    var output = '';
+
+                    for (ind = 0; ind < articlesInfo.articles.length; ind++) {
+                        output += "<a href='" + articlesInfo.articles[ind].url + "'><h3>" + articlesInfo.articles[ind].title + "</h3></a>Author: " + articlesInfo.articles[ind].author + "<br/>" + articlesInfo.articles[ind].description + "<br/><br/>" +
+                        "<img src='" + articlesInfo.articles[ind].urlToImage + "' width='200px' height='200px'>";
+                    }
+                    document.getElementById('div1').innerHTML = output;
+                }
+        </script>
+
+    </body>
+</html>

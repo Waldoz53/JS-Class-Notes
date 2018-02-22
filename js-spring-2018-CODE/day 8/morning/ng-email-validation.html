@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<style>
+    input.ng-invalid {
+        background-color: palevioletred;
+    }
+</style>
+<body>
+    <form data-ng-app='' name='myForm'>
+        EMAIL: <input type="email" name="myEmail" data-ng-model='text'></input>
+        <br>
+        <span data-ng-show='myForm.myEmail.$error.email'>Not a valid email address!</span>
+        <br><br>
+        Name: <input type="text" name="myName" data-ng-model='myText' required>
+
+
+    </form>
+</body>
+</html>

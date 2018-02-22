@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+    <div data-ng-app="custApp" data-ng-controller='custCtrl'>
+        <table>
+            <tr data-ng-repeat='cust in names'>
+                <td data-ng-if='$odd' style='background-color:coral'>{{cust.Name}}</td>
+                <td data-ng-if='$even' style='background-color:steelblue'>{{cust.Name}}</td>
+
+                <td data-ng-if='$odd' style='background-color:coral'>{{cust.City}}</td>
+                <td data-ng-if='$even' style='background-color:steelblue'>{{cust.City}}</td>
+
+                <td data-ng-if='$odd' style='background-color:coral'>{{cust.Country}}</td>
+                <td data-ng-if='$even' style='background-color:steelblue'>{{cust.Country}}</td>
+            </tr>
+        </table>
+    </div>
+
+<script>
+    var app = angular.module('custApp', []);
+
+    app.controller('custCtrl', function($scope, $http){
+        $http.get('customers.php')
+
+        .then(function(response){
+            $scope.names = response.data.records
+        });
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+    <div ng-app="">
+        <p>Input:<input type="text" ng-model='firstName'>
+            <br>
+            Last Name: <input type="text" ng-model='lastName'>
+        </p>
+
+        Bound HTML elements output our data...<br/>
+        <br/>
+        <p ng-bind='firstName'></p>
+        <p ng-bind='lastName'></p>
+
+        <p>{{firstName + " " + lastName}}</p>
+    </div>
+
+<script>
+
+</script>
+
+</body>
+</html>
