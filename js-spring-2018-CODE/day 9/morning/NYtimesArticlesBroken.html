@@ -1,0 +1,78 @@
+<html>
+<!-- our basic 'shell' for javascript work -->
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#cboDays").on('change',function(){
+
+                    // variables to hold our selected values
+                    var timePeriod = $("#cboDays").val();
+                    var section = $("cboSection").val();
+
+                    //var url = "https://api.nytimes.com/svc/mostpopular/v2/mostshared/Food/7.json?api-key=bcbe55d8f2424c0db54b916f80e67321;
+                    // there are no errors or bugs in the url
+                    var url = "https://api.nytimes.com/svc/mostpopular/v2/mostshared/" + section + "/" + timePeriod + ".json?api-key=bcbe55d8f2424c0db54b916f80e67321";
+                    // setup our AJAX request
+                    var xhtp = new XMLHttpRequest();
+
+                    // set up our AJAX event handler
+                    xhttp.onreadystatechange = function(){
+                        //check the state and status
+                        if(xhttp.readyState==4 && xhttp.status=200){
+                            var responseText = JSON.parse(xhttp.responseText);
+                            // call a function to output our book data
+                            outputShares(responsetext);
+                        }
+                    }
+
+                    // start our AJAX calls
+                    xhttp.open("GET",url,true);
+                    xhttp.send();
+
+                    // define our outputWeather function
+                    function outputArticles(articles){
+                        var output = "";
+                        var articlesArray = articles.results;
+                        for(index=0;index<articlesArray.length;index){
+                          // put this url in a browser to see how the JSON is
+                          // formatted:
+                          //https://api.nytimes.com/svc/mostpopular/v2/mostshared/Food/7.json?api-key=bcbe55d8f2424c0db54b916f80e67321&section=food&time-period=7
+                          //http://developer.nytimes.com/most_popular_api_v2.json#/Console/GET/mostshared/%7Bsection%7D/%7Btime-period%7D.json
+                            output="Title: <a href='" + articlesArray[index].url + "' target='_blank'>" + articlesArray[index].title + "</a><br/>" +
+                                "Author: " = articlesArray[index].byline + "<br/>" +
+                                "Description: " + articlesArray[index].content + "<br/><br/>";
+
+                        }
+                        $("#articleShare").html(outputText);
+                    }
+                })
+            })
+
+        </script>
+    </head>
+    <body id="#articleBody">
+
+        Get Food Articles
+        <br/><br/>
+        <h5>Most Shared
+            <select id="cboSection">
+                <option value='Food'>Food</option>
+                <option value='Arts'>Arts</option>
+                <option value='Health'>Health</option>
+                <option value='Movies'>Movies</option>
+            </select>
+
+            Articles from NY Times in last
+            <select id="cboDays">
+                <option value=''>-Select-</option>
+                <option value='1'>1</option>
+                <option value='7'>7</option>
+                <option value='30'>30</option>
+            </select>
+            Days:</h5>
+        <br/>
+        <span id="articleShare"></span>
+
+    </body>
+</html>
